@@ -8,6 +8,26 @@ http:
   url: "{{baseUrl}}/weatherforecast"
   auth: inherit
 
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("Satus code is 200 OK", function() {
+          expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Response returns right data", function(){
+          const body = res.getBody();
+          expect(body).to.be.an("array");
+          expect(body.length).to.equal(5);
+        });
+
+        test("Response returns valid forecast", function(){
+          const forecast = res.getBody()[0];
+          expect(body).to.be.an("array");
+          expect(body.length).to.equal(5);
+        });
+
 settings:
   encodeUrl: true
   timeout: 0

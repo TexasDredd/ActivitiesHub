@@ -5,8 +5,21 @@ info:
 
 http:
   method: GET
-  url: "{{baseUrl}}/weatherforecast"
+  url: "{{baseUrl}}/events"
   auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("Satus code is 200 OK", function() {
+          expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Response returns right data", function(){
+          const body = res.getBody();
+          expect(body).to.be.an("array");
+        });
 
 settings:
   encodeUrl: true
