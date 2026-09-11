@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using Domain;
+using EventsHub.Domain;
 
 
-namespace Persistence;
+namespace EventsHub.Persistence;
  public class AppDbContext(DbContextOptions options) : DbContext (options)
 {
     public DbSet<Event> Events { get; set; }

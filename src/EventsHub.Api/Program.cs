@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
-using Domain;
-using Persistence;
+using EventsHub.Domain;
+using EventsHub.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<Persistence.AppDbContext>(opt =>
+builder.Services.AddDbContext<EventsHub.Persistence.AppDbContext>(opt =>
 {
     opt.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection"));
 });
