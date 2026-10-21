@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using EventsHub.Domain;
 
 namespace EventsHub.Persistence;
@@ -54,7 +50,7 @@ public static class DbInitializer
                 Latitude = "19.4352",
                 Longitude = "-99.1412"
             },
-            new(){
+            new() {
                 Title = "Past Event 5",
                 Date = DateTime.Now.AddMonths(-9),
                 Description = "Event 9 months ago",
@@ -64,7 +60,7 @@ public static class DbInitializer
                 Latitude = "21.0997",
                 Longitude = "-86.7561"
             },
-            new(){
+            new() {
                 Title = "Future Event 1",
                 Date = DateTime.Now.AddMonths(1),
                 Description = "Event 1 months in future",
@@ -94,7 +90,7 @@ public static class DbInitializer
                 Latitude = "19.4847",
                 Longitude = "-99.1176"
             },
-            new(){
+            new() {
                 Title = "Future Event 4",
                 Date = DateTime.Now.AddMonths(6),
                 Description = "Event 6 months in future",
@@ -115,6 +111,7 @@ public static class DbInitializer
                 Longitude = "-103.3475"
             }
         };
+
         context.Events.AddRange(events);
 
         await context.SaveChangesAsync();
